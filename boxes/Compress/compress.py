@@ -5,7 +5,6 @@
 #  @author        Chih-Yuan Chen
 #  @brief         This program can copy, packing files(directions) to another target place.
 
-#from __future__ import print_function
 from __future__ import unicode_literals
 
 import sys
@@ -24,6 +23,12 @@ TARGET_DIR = config.TARGET_DIR
 COMPRESSED_MAIN = os.path.abspath(config.COMPRESSED_MAIN)
 DEFAULT_OUTPUT = config.DEFAULT_OUTPUT
 
+"""
+    @desc   Compressed files/directories by compressed format.
+
+    @param  (Tuple) Waiting to compress files/directories absoulte path
+            (String) Output absolute path
+"""
 def compressed(input, output, type):
     type = type.lower()
     if type == 'gzip':
