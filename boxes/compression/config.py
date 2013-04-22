@@ -16,5 +16,5 @@ SOURCE_PATH = r"D:\99_SystemTools\2_Design\AppServ\www\mywiki\data"
 SOURCE_DIR = ('pages', 'media')
 
 # compress setting
-COMPRESSED_MAIN = r"D:\99_SystemTools\7-Zip\7z.exe a -t7z"
+COMPRESSION_MAIN = r"D:\99_SystemTools\7-Zip\7z.exe a -t7z"
 DEFAULT_OUTPUT = 'pages'

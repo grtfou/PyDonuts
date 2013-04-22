@@ -58,17 +58,16 @@ if __name__ == '__main__':
     for file in result_paths:
         total_file_count += 1
 
+        # ignore self file
+        if file in (__file__, 'config.py'):
+            continue
+
         with open(file, 'r') as open_file:
 
             line = open_file.readline()
             while line:
                 # check all rules
                 if any([rc.search(line) for rc in regx_list]):
-
-                    # ignore self file
-                    if file in (__file__, 'config.py'):
-                        break
-
                     found_file_count += 1
                     found_paths.add(file)
                     break

@@ -20,16 +20,16 @@ SOURCE_DIR = config.SOURCE_DIR
 TARGET_PATH = os.path.abspath(config.TARGET_PATH)
 TARGET_DIR = config.TARGET_DIR
 
-COMPRESSED_MAIN = os.path.abspath(config.COMPRESSED_MAIN)
+COMPRESSION_MAIN = os.path.abspath(config.COMPRESSION_MAIN)
 DEFAULT_OUTPUT = config.DEFAULT_OUTPUT
 
 """
-    @desc   Compressed files/directories by compressed format.
+    @desc   compression files/directories by compression format.
 
     @param  (Tuple) Waiting to compress files/directories absoulte path
             (String) Output absolute path
 """
-def compressed(input, output, type):
+def compression(input, output, type):
     type = type.lower()
     if type == 'gzip':
         import tarfile
@@ -40,10 +40,10 @@ def compressed(input, output, type):
 
         tar.close()
     elif type == '7zip':
-        cmd = "{0} \"{1}\" {2}".format(COMPRESSED_MAIN, output, " ".join(input))
+        cmd = "{0} \"{1}\" {2}".format(COMPRESSION_MAIN, output, " ".join(input))
         os.system(cmd)
     else:
-        print("No found this compressed type.")
+        print("No found this compression type.")
 
 def main(type, output):
     today = datetime.datetime.now().strftime('%y-%m-%d')
@@ -57,7 +57,7 @@ def main(type, output):
         output_path = os.path.join(TARGET_PATH, output_dir,
                                    "%s(%s)" % (output, today))
 
-        compressed(append_path, output_path, type)
+        compression(append_path, output_path, type)
 
         time.sleep(2)
 
