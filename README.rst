@@ -14,6 +14,8 @@ Features
 
   + fileseeker: A tool for find files by regular expression.
 
+  + ga_stock: Clustering stocks data for portfolio based on GA.
+
   + stock_agents: A tool looks for good stocks that can buy in TW.
 
 * utils
@@ -27,6 +29,7 @@ Requirements
 * **Optional** - ``lxml``
 * **Optional** - ``simplejson``
 
+* Perl 5.8
 
 LICENSE
 =======
