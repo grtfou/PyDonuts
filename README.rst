@@ -9,11 +9,18 @@ Features
 ========
 
 * boxes
-  * compression: A tool for backup files and dictionaries.
-  * fileseeker: A tool for find files by regular expression.
-  * stock_agents: A tool looks for good stocks that can buy in TW.
+
+  + compression: A tool for backup files and dictionaries.
+
+  + fileseeker: A tool for find files by regular expression.
+
+  + ga_stock: Clustering stocks data for portfolio based on GA. 
+  
+  + stock_agents: A tool looks for good stocks that can buy in TW.
+
 * utils
-  * chinese_num_converter: Supported Chinese number and Arabic number conversation.
+
+  + chinese_num_converter: Supported Chinese number and Arabic number conversation.
 
 Requirements
 ============
@@ -22,6 +29,7 @@ Requirements
 * **Optional** - ``lxml``
 * **Optional** - ``simplejson``
 
+* Perl 5.8
 
 LICENSE
 =======
