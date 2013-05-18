@@ -25,9 +25,11 @@ Features
 Requirements
 ============
 
-* Python 2.6-2.7
-* **Optional** - ``lxml``
-* **Optional** - ``simplejson``
+* Python 2.6
+
+  + **Optional** - ``lxml``
+  
+  + **Optional** - ``simplejson``
 
 * Perl 5.8
 

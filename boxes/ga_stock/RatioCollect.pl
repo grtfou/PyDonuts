@@ -2,7 +2,7 @@
 # take to test file want gene's data
 # use strict;
 # use warnings;
-# written by cychen 07.12.29
+# written written on 07.12.29
 
 #my $file_compare = '93_count_4.txt';
 #my $file_ratio = 'input_test.txt';

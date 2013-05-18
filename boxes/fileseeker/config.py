@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #  @first_date    20130125
 #  @date
-#  @author        Chih-Yuan Chen
 #  @brief         Settings and configuration for files_seeker.
 
 # rules sample

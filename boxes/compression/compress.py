@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #  @first_date    20110902
 #  @date          20130124
-#  @author        Chih-Yuan Chen
 #  @brief         This program can copy, packing files(directions) to another target place.
 
 from __future__ import unicode_literals

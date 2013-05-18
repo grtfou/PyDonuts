@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #  @first_date    20110808
 #  @date          20130125
-#  @author        Chih-Yuan Chen
 #  @brief         Visiting all directories and files to search keywords.
 
 from __future__ import unicode_literals

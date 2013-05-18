@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #############################
-# GA paper   by cychen  08.02.25
+# GA paper written on 08.02.25
 #############################
 # use strict;
 # use warnings;

@@ -2,7 +2,7 @@
 # take to test file want gene's data
 # use strict;
 # use warnings;
-# written by cychen 07.12.21
+# written on 07.12.21
 
 #my $file_input = 'in_count.txt';
 

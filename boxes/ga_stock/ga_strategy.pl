@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #############################
-# GA paper   by cychen  08.01.26
+# GA paper written on 08.01.26
 # 輸入資料:股名,報酬,風險
 # fitness function = Sharp Ratio = 報酬 / 風險
 #############################

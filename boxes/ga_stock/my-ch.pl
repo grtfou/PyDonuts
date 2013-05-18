@@ -2,7 +2,7 @@
 # proced .cdt file to choose genes
 # use strict;
 # use warnings;
-# written by cychen 08.01.16
+# written on 08.01.16
 
 my $file_cdt=$ARGV[0];	# input filename
 my $sick=$ARGV[1];		# column
