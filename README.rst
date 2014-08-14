@@ -2,38 +2,39 @@
 beagle
 ======
 
-``beagle`` is a sandbox. It provides some APIs and tools.
+``beagle`` is a toolbox. It provides some APIs and tools.
 
 
 Features
 ========
 
+(PY): Python, (GO): Golang
+
 * boxes
 
-  + compression: A tool for backup files and dictionaries.
+  + compression: (PY) Backup files and dictionaries.
 
-  + fileseeker: A tool for find files by regular expression.
+  + fileseeker: (PY) Find files by regular expression.
 
-  + ga_stock: Clustering stocks data for portfolio based on GA.
-
-  + stock_agents: A tool looks for good stocks that can buy in TW.
+  + stock_agents: (PY) Stock selector for price/volume strategy (include crawler)
 
 * utils
 
-  + chinese_num_converter: Supported Chinese number and Arabic number conversation.
+  + string:
+
+    * chinese_num_converter: (PY) Chinese number <=> Arabic number
+
+  + security:
+
+    * xtea.py: (PY) `wiki <http://en.wikipedia.org/wiki/XTEA>`_
 
 Requirements
 ============
 
-* Python 2.6
+* Python project
+
+  + Python >= 2.6
 
   + **Optional** - ``lxml``
-  
+
   + **Optional** - ``simplejson``
-
-* Perl 5.8
-
-LICENSE
-=======
-
-``beagle`` is licensed under the MIT license.
