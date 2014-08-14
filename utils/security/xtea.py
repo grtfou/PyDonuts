@@ -12,6 +12,13 @@ class xtea:
     def __init__(self):
         pass
 
+    ##
+    #  @desc    Encoding(encrypt) string by key
+    #  @param   (String) key (recommend 16 character (128 bits))
+    #  @param   (String) for encrypt
+    #  @param   (Integer) Cycle times (Feistel round loop) (recommend 32 times)
+    #  @param   (String) endian for C compiler
+    #  @return  (String) encrypt string
     def encrypt(self, key, data, run_times=32, end_str="!"):
         i = 0
         encrypt_str = ""
@@ -43,6 +50,13 @@ class xtea:
 
         return encrypt_str
 
+    ##
+    #  @desc    Decoding(encrypt) string by key
+    #  @param   (String) key (recommend 16 character (128 bits))
+    #  @param   (String) for encrypt
+    #  @param   (Integer) Cycle times (Feistel round loop) (recommend 32 times)
+    #  @param   (String) endian for C compiler
+    #  @return  (String) decrypt string
     def decrypt(self, key, data, run_times=32, end_str="!"):
         i = 0
         decrypt_str = ""
