@@ -12,21 +12,25 @@ Features
 
 * boxes
 
-  + compression: (PY) Backup files and dictionaries.
+  + (PY) compression: Backup files and dictionaries.
 
-  + fileseeker: (PY) Find files by regular expression.
+  + (PY) fileseeker: Find files by regular expression.
 
-  + stock_agents: (PY) Stock selector for price/volume strategy (include crawler)
+  + (PY) stock_agents: Stock selector for price/volume strategy (include crawler)
+
+  + (GO) mini_web: a mini web by web.go
+
+      + `web.go <https://github.com/hoisie/web>`_
 
 * utils
 
   + string:
 
-    * chinese_num_converter: (PY) Chinese number <=> Arabic number
+    * (PY) chinese_num_converter: Chinese number <=> Arabic number
 
   + security:
 
-    * xtea.py: (PY) `wiki <http://en.wikipedia.org/wiki/XTEA>`_
+    * (PY) xtea.py: `wiki <http://en.wikipedia.org/wiki/XTEA>`_
 
 Requirements
 ============
@@ -38,3 +42,12 @@ Requirements
   + **Optional** - ``lxml``
 
   + **Optional** - ``simplejson``
+
+* Go
+
+  + Go >= 1.3
+
+LICENSE
+=======
+
+``beagle`` is licensed under the MIT license.
