@@ -20,7 +20,7 @@ Features
 
   + (GO) mini_web: a mini web by web.go
 
-      + `web.go <https://github.com/hoisie/web>`_
+    * `web.go <https://github.com/hoisie/web>`_
 
 * utils
 
