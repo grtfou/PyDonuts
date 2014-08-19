@@ -38,6 +38,10 @@ Features
 
     * (PY) xtea.py: `wiki <http://en.wikipedia.org/wiki/XTEA>`_
 
+  + web:
+
+    * db: connection database apis (mysql, mongodb)
+
 Requirements
 ============
 
