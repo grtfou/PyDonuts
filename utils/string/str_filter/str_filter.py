@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 #  @first_date    20130705
 #  @date          20130719  - Added ascii function
-#  @author        Chihyuan
 #  @version       1.0
 #  @brief         content string filter
 import re
