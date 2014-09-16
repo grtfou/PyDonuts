@@ -1,7 +1,7 @@
 ======
 beagle
 ======
-Last Updated on 2014.09.15
+Last Updated on ``**2014.09.15**``
 
 ``beagle`` is a toolbox. It provides some APIs and tools.
 
