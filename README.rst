@@ -1,9 +1,9 @@
 ======
 beagle
 ======
+Last Updated on 2014.09.15
 
 ``beagle`` is a toolbox. It provides some APIs and tools.
-
 
 Features
 ========
@@ -59,5 +59,4 @@ Requirements
 
 LICENSE
 =======
-
-``beagle`` is licensed under the MIT license.
+MIT license.
