@@ -1,7 +1,7 @@
 ======
 beagle
 ======
-Last Updated on **2014.09.15**
+Last Updated on **2014.10.27**
 
 ``beagle`` is a toolbox. It provides some APIs and tools.
 
@@ -37,6 +37,8 @@ Features
   + security:
 
     * (PY) xtea.py: `wiki <http://en.wikipedia.org/wiki/XTEA>`_
+
+    * (PY) password_generator.py: Generate password
 
   + web:
 
