@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #  @first_date    20130124
-#  @date
-#  @brief         Settings and configuration for Compress.
+#  @date          20141107
+'''
+Settings and configuration for Compress
+'''
 
 # destination path
-# ex. 'D:\100-Dropbox\Dropbox\Public' and 'D:\100-Dropbox\Dropbox\Sharing'
+# ex. 'D:\100-Dropbox\Dropbox\Public'
+#     'D:\100-Dropbox\Dropbox\Sharing'
 TARGET_PATH = r"D:\100-Dropbox\Dropbox"
 TARGET_DIR = ('Public', 'Sharing')
 
