@@ -25,15 +25,15 @@ TARGET_PATH = os.path.abspath(config.TARGET_PATH)
 TARGET_DIR = config.TARGET_DIR
 
 COMPRESSION_MAIN = os.path.abspath(config.COMPRESSION_MAIN)
-DEFAULT_OUTPUT = config.DEFAULT_OUTPUT
+OUTPUT_PREFIX_FILENAME = config.OUTPUT_PREFIX_FILENAME
 
-"""
-    @desc   compression files/directories by compression format.
-
-    @param  (Tuple) Waiting to compress files/directories absoulte path
-            (String) Output absolute path
-"""
 def compression(input_file, output, f_type):
+    """
+        @desc   compression files/directories by compression format.
+
+        @param  (Tuple) Waiting to compress files/directories absoulte path
+                (String) Output absolute path
+    """
     f_type = f_type.lower()
     if f_type == 'gzip':
         tar = tarfile.open("%s.tar.gz" % output, "w:gz")
@@ -42,12 +42,15 @@ def compression(input_file, output, f_type):
 
         tar.close()
     elif f_type == '7zip':
-        cmd = "{0} \"{1}\" {2}".format(COMPRESSION_MAIN, output, " ".join(input_file))
+        cmd = "{} \"{}\" {}".format(COMPRESSION_MAIN, output, " ".join(input_file))
         os.system(cmd)
     else:
         print("No found this compression type.")
 
 def main(f_type, output):
+    """
+    Main and start point
+    """
     today = datetime.datetime.now().strftime('%y-%m-%d')
 
     for output_dir in TARGET_DIR:
@@ -70,7 +73,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 2:
         compression_output = sys.argv[2]
     else:
-        compression_output = DEFAULT_OUTPUT
+        compression_output = OUTPUT_PREFIX_FILENAME
 
     if len(sys.argv) > 1:
         compression_type = sys.argv[1]
