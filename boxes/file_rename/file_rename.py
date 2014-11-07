@@ -1,46 +1,57 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #  @first_date    20120821
-#  @date
-#  @author        Chihyuan
-#  @version       - 1.0 [public release]
-#
-#  @brief         This program can search file to rename new file name.
+#  @date          20141107
+"""
+Search file to rename new filename
+"""
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
 
 import os
 import re
 
 class FastRename:
-    def list_files(self, is_include_sub=False):
+    def __init__(self):
+        pass
+
+    def __list_files(self, is_include_sub=False):
         search_file_list = []
-        for dirname, dirnames, filenames in os.walk(os.getcwd()):
+        for dirname, _, filenames in os.walk(os.getcwd()):
             for filename in filenames:
                 tree_path = os.path.join(dirname, filename)
                 search_file_list.append(tree_path)
 
-            if not(is_include_sub):
+            if not is_include_sub:
                 return search_file_list
 
         return search_file_list
 
-    def rename(self, path_list, search_type="xml"):
+    def rename(self, search_exp, replace_exp, is_include_sub=False, is_prod=True, search_type="xml"):
         work_file_list = []
 
-        for work_path in path_list:
-            find_file_path = re.search(r'.*\\(' + search_exp + ')\.' + search_type.lower() + '$', work_path)
+        for work_path in self.__list_files(is_include_sub):
+            find_file_path = re.search(r".*\\({})\.{}$".format(search_exp, search_type),
+                                       work_path)
 
             if find_file_path:
-                print "Old Path Name: %s" % (work_path)
+                print("Old Path Name: {}".format(work_path))
 
-                new_name_set = re.search(replace_exp, work_path)
-                # print(new_name_set, new_name_set.group(1), new_name_set.group(2))
-                if new_name_set and new_name_set.group(1) and new_name_set.group(2):
-                    new_file_name = new_name_set.group(1) + new_name_set.group(2) + '.jpg' # + search_type.lower()
-                    print "New Path Name: %s" % (new_file_name)
+                new_name_set = re.search(r'(.*\\){}'.format(replace_exp), work_path)
+
+                prefix_name = new_name_set.group(1)
+                suffix_name = new_name_set.group(2)
+
+                if new_name_set and prefix_name and suffix_name:
+                    new_file_name = '{}{}.jpg'.format(prefix_name, suffix_name)
+                    print("New Path Name: {}".format(new_file_name))
 
                     # Rename
-                    os.rename(work_path, new_file_name)
+                    if is_prod:
+                        os.rename(work_path, new_file_name)
 
-                print "===================="
+                print("=" * 20)
 
                 work_file_list.append(work_path)
 
@@ -48,24 +59,18 @@ class FastRename:
 
 ### Main ###
 if __name__ == '__main__':
-    my_exe = FastRename()
-    files_list = []
+    my_script = FastRename()
 
     ### Arguments by search ###
-    search_exp = '.*'   # Search all files
-    #replace_exp = r'(.*\\)[^0-9]*(\d*)' # 檔名只取第一組數字
-    #replace_exp = r'(.*\\)([\w ]*)-.*' # 減號後面不要
-    # replace_exp = r'(.*\\).*?-([-\w ]*)' # 第一個減號前面不要
-    replace_exp = r'(.*\\)([0-9]+).*' # 第一個減號前面不要
+    search_exp = r'.*'   # Search all files
+
+    replace_exp = r'[^0-9]*(\d*)'  # filename use first number only
+    # replace_exp = r'([\w ]*)-.*'   # before dash only
+    # replace_exp = r'.*?-([-\w ]*)' # after dash only
     ###-arguments ###
 
-    # Execute .txt and .sample files
-    my_list = my_exe.list_files(False)
-
-    # files_list.extend(my_exe.rename(my_list, "txt"))
-    # files_list.extend(my_exe.rename(my_list, "jpg"))
-    files_list.extend(my_exe.rename(my_list, "!ut"))
-
-    # All find files path
-    # for find_path in files_list:
-    #     print find_path
+    my_script.rename(search_exp,
+                     replace_exp,
+                     is_include_sub=False,
+                     is_prod=False,
+                     search_type="jpg")
