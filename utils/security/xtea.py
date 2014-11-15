@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 #  @first_date    20140620
 #  @date          20140623 - Fixing bug
-#  @version       0.0
-#  @brief         XTEA
-#  @brief         Algorithm from (http://en.wikipedia.org/wiki/XTEA)
+'''
+XTEA for cryptography
+Algorithm from (http://en.wikipedia.org/wiki/XTEA)
+'''
 
 import struct
 
