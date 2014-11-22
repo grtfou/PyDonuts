@@ -7,10 +7,10 @@ Search file to rename new filename
 """
 from __future__ import unicode_literals
 from __future__ import print_function
-from __future__ import division
 
 import os
 import re
+import random
 
 class FastRename(object):
     '''
@@ -20,7 +20,8 @@ class FastRename(object):
     def __init__(self):
         pass
 
-    def __list_files(self, is_include_sub=False):
+    @classmethod
+    def list_files(cls, is_include_sub=False):
         '''
         Visit file(folder) path by regex
         '''
@@ -34,6 +35,7 @@ class FastRename(object):
                 return search_file_list
 
         return search_file_list
+
 
     def rename(self, search_exp, replace_exp, **kwargs):
         '''
@@ -52,14 +54,14 @@ class FastRename(object):
                 search_type = value
 
         ### travel path ###
-        for work_path in self.__list_files(is_include_sub):
+        for work_path in self.list_files(is_include_sub):
             # old file name and path
-            dir_path = '{}{}'.format(os.sep.join(work_path.split(os.sep)[:-1]), os.sep)
-            old_filename = work_path.split(os.sep)[-1]
+            dir_path = '{}{}'.format(os.sep.join(work_path.split(os.sep)[:-1]),
+                                     os.sep)
 
             # Search rule
             find_rule = r"({})\.{}$".format(search_exp, search_type)
-            find_file_path = re.search(find_rule, old_filename)
+            find_file_path = re.search(find_rule, work_path.split(os.sep)[-1])
 
             if find_file_path:
                 print("Old Path: {}".format(work_path))
@@ -68,13 +70,16 @@ class FastRename(object):
                 new_name_set = re.search(replace_exp, find_file_path.group(1))
 
                 if new_name_set:
-                    new_path = '{}{}.{}'.format(dir_path, new_name_set.group(1), search_type)
-                    new_path_no_ext = '{}{}'.format(dir_path, new_name_set.group(1))
+                    new_path = '{}{}.{}'.format(dir_path, new_name_set.group(1),
+                                                search_type)
+                    new_path_no_ext = '{}{}'.format(dir_path,
+                                                    new_name_set.group(1))
 
                     # Avoid replace the same name file
                     if os.path.exists(new_path):
-                        new_path_no_ext += "_1"
-                        new_path = '{}.{}'.format(new_path_no_ext, search_type)
+                        new_path = '{}_{}.{}'.format(new_path_no_ext,
+                                                     str(random.randint(1, 99)),
+                                                     search_type)
 
                     print("New Path: {}".format(new_path))
 
