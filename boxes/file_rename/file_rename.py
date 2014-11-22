@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #  @first_date    20120821
-#  @date          20141118 - Fixing bugs
+#  @date          20141123 - For PEP8 format
 """
 Search file to rename new filename
 """
@@ -41,50 +41,46 @@ class FastRename(object):
         '''
         Main function for rename the file
         '''
-        is_prod = False
-        is_include_sub = False
-        search_type = "xml"
+        settings = {'is_prod': False,
+                    'is_include_sub': False,
+                    'search_type': "xml"}
 
         for name, value in kwargs.items():
-            if name == 'is_prod':
-                is_prod = value
-            elif name == 'is_include_sub':
-                is_include_sub = value
-            elif name == 'search_type':
-                search_type = value
+            settings[name] = value
 
         ### travel path ###
-        for work_path in self.list_files(is_include_sub):
+        for work_path in self.list_files(settings['is_include_sub']):
             # old file name and path
-            dir_path = '{}{}'.format(os.sep.join(work_path.split(os.sep)[:-1]),
-                                     os.sep)
+            dir_path = b'{}{}'.format(os.sep.join(work_path.split(os.sep)[:-1]),
+                                      os.sep)
 
             # Search rule
-            find_rule = r"({})\.{}$".format(search_exp, search_type)
+            find_rule = r"({})\.{}$".format(search_exp, settings['search_type'])
             find_file_path = re.search(find_rule, work_path.split(os.sep)[-1])
 
             if find_file_path:
-                print("Old Path: {}".format(work_path))
+                print(b"Old Path: {}".format(work_path))
 
                 # Checking filename for replace new name
                 new_name_set = re.search(replace_exp, find_file_path.group(1))
 
                 if new_name_set:
-                    new_path = '{}{}.{}'.format(dir_path, new_name_set.group(1),
-                                                search_type)
-                    new_path_no_ext = '{}{}'.format(dir_path,
-                                                    new_name_set.group(1))
+                    new_path = b'{}{}.{}'.format(dir_path,
+                                                 new_name_set.group(1),
+                                                 settings['search_type'])
+                    new_path_no_ext = b'{}{}'.format(dir_path,
+                                                     new_name_set.group(1))
 
                     # Avoid replace the same name file
                     if os.path.exists(new_path):
-                        new_path = '{}_{}.{}'.format(new_path_no_ext,
-                                                     str(random.randint(1, 99)),
-                                                     search_type)
+                        new_path = b'{}_{}.{}'.format(new_path_no_ext,
+                                                      str(random.randint(1, 99)),
+                                                      settings['search_type'])
 
-                    print("New Path: {}".format(new_path))
+                    print(b"New Path: {}".format(new_path))
 
                     # Rename
-                    if is_prod:
+                    if settings['is_prod']:
                         os.rename(work_path, new_path)
 
                 print("=" * 20)
