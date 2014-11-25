@@ -11,6 +11,9 @@ from __future__ import print_function
 import os
 import re
 import random
+import sys
+
+CMD_ENCODE = sys.stdout.encoding
 
 class FastRename(object):
     '''
@@ -50,34 +53,46 @@ class FastRename(object):
 
         ### travel path ###
         for work_path in self.list_files(settings['is_include_sub']):
+            ### Keep encoding is 'unicode' for support python 2 and 3 ###
+            try:
+                work_path = work_path.decode(CMD_ENCODE)
+            except AttributeError:
+                pass
+            ###-
+
             # old file name and path
-            dir_path = b'{}{}'.format(os.sep.join(work_path.split(os.sep)[:-1]),
-                                      os.sep)
+            dir_path = '{}{}'.format(os.sep.join(work_path.split(os.sep)[:-1]),
+                                     os.sep)
 
             # Search rule
+            print(work_path.encode('utf-8'))
             find_rule = r"({})\.{}$".format(search_exp, settings['search_type'])
-            find_file_path = re.search(find_rule, work_path.split(os.sep)[-1])
+            find_file_path = re.search(find_rule, work_path.split(os.sep)[-1],
+                                       re.UNICODE)
 
             if find_file_path:
-                print(b"Old Path: {}".format(work_path))
+                print("Old Path: {}".format(work_path.encode(CMD_ENCODE,
+                                             "replace").decode(CMD_ENCODE)))
 
                 # Checking filename for replace new name
-                new_name_set = re.search(replace_exp, find_file_path.group(1))
+                new_name_set = re.search(replace_exp, find_file_path.group(1),
+                                         re.UNICODE)
 
                 if new_name_set:
-                    new_path = b'{}{}.{}'.format(dir_path,
-                                                 new_name_set.group(1),
-                                                 settings['search_type'])
-                    new_path_no_ext = b'{}{}'.format(dir_path,
+                    new_path = '{}{}.{}'.format(dir_path,
+                                                new_name_set.group(1),
+                                                settings['search_type'])
+                    new_path_no_ext = '{}{}'.format(dir_path,
                                                      new_name_set.group(1))
 
                     # Avoid replace the same name file
                     if os.path.exists(new_path):
-                        new_path = b'{}_{}.{}'.format(new_path_no_ext,
-                                                      str(random.randint(1, 99)),
-                                                      settings['search_type'])
+                        new_path = '{}_{}.{}'.format(new_path_no_ext,
+                                                     str(random.randint(1, 99)),
+                                                     settings['search_type'])
 
-                    print(b"New Path: {}".format(new_path))
+                    print("New Path: {}".format(new_path.encode(CMD_ENCODE,
+                                             "replace").decode(CMD_ENCODE)))
 
                     # Rename
                     if settings['is_prod']:
@@ -100,4 +115,4 @@ if __name__ == '__main__':
                        REPLACE_RULE,
                        is_include_sub=True,
                        is_prod=False,
-                       search_type="jpg")
+                       search_type="txt")
