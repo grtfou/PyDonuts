@@ -1,5 +1,5 @@
 ======
-beagle
+PyDonuts
 ======
 Last Updated on **2014.10.27**
 
@@ -8,7 +8,7 @@ Last Updated on **2014.10.27**
 Features
 ========
 
-(PY): Python, (GO): Golang
+(PY): Python
 
 * boxes
 
@@ -21,10 +21,6 @@ Features
   + (PY) mini_cache: Cache mechanism (support decorate format)
 
   + (PY) stock_agents: Stock selector for price/volume strategy (include crawler)
-
-  + (GO) mini_web: a mini web by web.go
-
-    * `web.go <https://github.com/hoisie/web>`_
 
 * utils
 
@@ -42,7 +38,7 @@ Features
 
   + web:
 
-    * db: connection database apis (mysql, mongodb)
+    * (PY) db: connection database apis (mysql, mongodb)
 
 Requirements
 ============
