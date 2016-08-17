@@ -8,7 +8,7 @@ Last Updated on **2014.10.27**
 Features
 ========
 
-* boxes
+* tiny_tools
 
   + compression: Backup files and dictionaries
 
@@ -36,19 +36,12 @@ Features
 
   + web:
 
-    * (PY) db: connection database apis (mysql, mongodb)
+    * db: connection database apis (mysql, mongodb)
 
-Requirements
-============
+  + file_type:
 
-* Python project
+    * barcode_pdf: export pdf file that include barcode
 
-  + Python >= 2.6
-
-  + **Optional** - ``lxml``
-
-  + **Optional** - ``simplejson``
-
-LICENSE
+License
 =======
 MIT license.
