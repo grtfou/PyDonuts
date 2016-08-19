@@ -8,8 +8,8 @@ Created barcode and output to PDF file.
 Require Libraries:
 (* is primary library)
 
-  - Pillow==3.3.0
-  - (*)reportlab==3.3.0
+Pillow==3.3.0
+(*)reportlab==3.3.0
 """
 from reportlab.graphics.barcode import code128
 from reportlab.graphics.barcode import code39
