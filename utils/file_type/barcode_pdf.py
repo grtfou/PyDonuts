@@ -5,10 +5,11 @@
 """
 Created barcode and output to PDF file.
 
-* is primary library
+Require Libraries:
+(* is primary library)
 
-Pillow==3.3.0
-(*)reportlab==3.3.0
+  - Pillow==3.3.0
+  - (*)reportlab==3.3.0
 """
 from reportlab.graphics.barcode import code128
 from reportlab.graphics.barcode import code39
@@ -18,7 +19,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 
 
-def pdf_setter():
+def pdf_exporter():
     # font
     pdfmetrics.registerFont(TTFont('STHeiti', 'STHeiti Light.ttc'))
     pdfmetrics.registerFont(TTFont('STHeitiM', 'STHeiti Medium.ttc'))
@@ -47,4 +48,4 @@ def pdf_setter():
     mypdf.save()
 
 if __name__ == '__main__':
-    pdf_setter()
+    pdf_exporter()
