@@ -1,9 +1,9 @@
 ======
-py-utils
+py-misc
 ======
 Last Updated on **2014.10.27**
 
-``PyDonuts`` is a toolbox. It provides some APIs and tools.
+It is a toolbox.
 
 Features
 ========
